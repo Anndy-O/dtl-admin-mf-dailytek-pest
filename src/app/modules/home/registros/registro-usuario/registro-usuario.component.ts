@@ -91,7 +91,7 @@ export class RegistroUsuarioComponent implements OnInit {
     this.isModalOpen = false;
   }
 
-  handleSelectedCode(codigo: number) {
+  handleSelectedCode(codigo: string) {
     this.usuarioForm.patchValue({
       codigoEmpleado: codigo
     });

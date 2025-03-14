@@ -9,7 +9,7 @@ export class ModalEmpleadosComponent implements OnChanges {
 
   @Input() data: any[] = [];
   @Output() close = new EventEmitter<void>();
-  @Output() selectedCode = new EventEmitter<number>();
+  @Output() selectedCode = new EventEmitter<string>();
 
   codigoFilter: string = '';
   nombreFilter: string = '';

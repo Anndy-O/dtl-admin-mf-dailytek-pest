@@ -10,6 +10,8 @@ import { RegistroEmpleadoComponent } from './registros/registro-empleado/registr
 import { RegistrarClientesComponent } from './registros/registrar-clientes/registrar-clientes.component';
 import { ClientesComponent } from './registros/components/clientes/clientes.component';
 import { ClientesTemporalesComponent } from './registros/components/clientes-temporales/clientes-temporales.component';
+import { TablaClientesComponent } from './registros/components/tabla-clientes/tabla-clientes.component';
+import { TablaClientesTemporalesComponent } from './registros/components/tabla-clientes-temporales/tabla-clientes-temporales.component';
 
 
 
@@ -21,7 +23,9 @@ import { ClientesTemporalesComponent } from './registros/components/clientes-tem
     RegistroEmpleadoComponent,
     RegistrarClientesComponent,
     ClientesComponent,
-    ClientesTemporalesComponent
+    ClientesTemporalesComponent,
+    TablaClientesComponent,
+    TablaClientesTemporalesComponent
   ],
   imports: [
     CommonModule,

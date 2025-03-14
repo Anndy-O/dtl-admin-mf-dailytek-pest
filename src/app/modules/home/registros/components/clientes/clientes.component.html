@@ -1,3 +1,149 @@
-<p>
-  clientes works!
-</p>
+<form [formGroup]="clienteForm" (ngSubmit)="crearCliente()" class="client-container">
+  <h2>Crear Cliente</h2>
+  <div class="container">
+      <div class="form-group">
+        <label for="cliente">Cliente</label>
+        <input id="cliente" formControlName="cliente" type="text" class="form-control" placeholder="Ingrese el nombre del cliente" />
+        <div *ngIf="clienteForm.get('cliente')?.invalid && clienteForm.get('cliente')?.touched" class="error">
+          <small *ngIf="clienteForm.get('cliente')?.hasError('required')">El nombre del cliente es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="codigoCliente">Código Cliente</label>
+        <input id="codigoCliente" formControlName="codigoCliente" type="text" class="form-control" placeholder="Ingrese el código del cliente" />
+        <div *ngIf="clienteForm.get('codigoCliente')?.invalid && clienteForm.get('codigoCliente')?.touched" class="error">
+          <small *ngIf="clienteForm.get('codigoCliente')?.hasError('required')">El código del cliente es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" formControlName="status" class="form-control">
+          <option value="">Seleccione el status</option>
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+          <option value="Potencial">Potencial</option>
+        </select>
+        <div *ngIf="clienteForm.get('status')?.invalid && clienteForm.get('status')?.touched" class="error">
+          <small *ngIf="clienteForm.get('status')?.hasError('required')">El status es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="tipoCliente">Tipo Cliente</label>
+        <select id="tipoCliente" formControlName="tipoCliente" class="form-control">
+          <option value="">Seleccione el tipo de cliente</option>
+          <option value="Oficina">Oficina</option>
+          <option value="Referido">Referido</option>
+          <option value="Directo">Directo</option>
+        </select>
+        <div *ngIf="clienteForm.get('tipoCliente')?.invalid && clienteForm.get('tipoCliente')?.touched" class="error">
+          <small *ngIf="clienteForm.get('tipoCliente')?.hasError('required')">El tipo de cliente es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="vendedor">Vendedor</label>
+        <div class="search-field">
+          <input id="vendedor" formControlName="vendedor" type="text" class="form-control" placeholder="Ingrese el nombre del vendedor" />
+          <button (click)="openModal(false)">buscar</button>
+        </div>
+        <div *ngIf="clienteForm.get('vendedor')?.invalid && clienteForm.get('vendedor')?.touched" class="error">
+          <small *ngIf="clienteForm.get('vendedor')?.hasError('required')">El nombre del vendedor es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="referido">Referido</label>
+        <div class="search-field">
+          <input id="referido" formControlName="referido" type="text" class="form-control" placeholder="Ingrese el nombre del referido" />
+          <button (click)="openModal(true)">buscar</button>
+        </div>
+        <div *ngIf="clienteForm.get('referido')?.invalid && clienteForm.get('referido')?.touched" class="error">
+          <small *ngIf="clienteForm.get('referido')?.hasError('required')">El nombre del referido es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input id="direccion" formControlName="direccion" type="text" class="form-control" placeholder="Ingrese la dirección" />
+        <div *ngIf="clienteForm.get('direccion')?.invalid && clienteForm.get('direccion')?.touched" class="error">
+          <small *ngIf="clienteForm.get('direccion')?.hasError('required')">La dirección es requerida.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="celular">Celular</label>
+        <input id="celular" formControlName="celular" type="text" class="form-control" placeholder="Ingrese el número de celular" />
+        <div *ngIf="clienteForm.get('celular')?.invalid && clienteForm.get('celular')?.touched" class="error">
+          <small *ngIf="clienteForm.get('celular')?.hasError('required')">El número de celular es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo</label>
+        <input id="correo" formControlName="correo" type="email" class="form-control" placeholder="Ingrese el correo electrónico" />
+        <div *ngIf="clienteForm.get('correo')?.invalid && clienteForm.get('correo')?.touched" class="error">
+          <small *ngIf="clienteForm.get('correo')?.hasError('required')">El correo electrónico es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contactoAdmin">Contacto Admin</label>
+        <input id="contactoAdmin" formControlName="contactoAdmin" type="text" class="form-control" placeholder="Ingrese el contacto admin" />
+        <div *ngIf="clienteForm.get('contactoAdmin')?.invalid && clienteForm.get('contactoAdmin')?.touched" class="error">
+          <small *ngIf="clienteForm.get('contactoAdmin')?.hasError('required')">El contacto admin es requerido.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="direccionComercial">Dirección Comercial</label>
+        <input id="direccionComercial" formControlName="direccionComercial" type="text" class="form-control" placeholder="Ingrese la dirección comercial" />
+        <div *ngIf="clienteForm.get('direccionComercial')?.invalid && clienteForm.get('direccionComercial')?.touched" class="error">
+          <small *ngIf="clienteForm.get('direccionComercial')?.hasError('required')">La dirección comercial es requerida.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input id="fecha" formControlName="fecha" type="date" class="form-control" />
+        <div *ngIf="clienteForm.get('fecha')?.invalid && clienteForm.get('fecha')?.touched" class="error">
+          <small *ngIf="clienteForm.get('fecha')?.hasError('required')">La fecha es requerida.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="llamadaSeguimientoFecha">Fecha de Llamada de Seguimiento</label>
+        <input id="llamadaSeguimientoFecha" formControlName="llamadaSeguimientoFecha" type="date" class="form-control" />
+        <div *ngIf="clienteForm.get('llamadaSeguimientoFecha')?.invalid && clienteForm.get('llamadaSeguimientoFecha')?.touched" class="error">
+          <small *ngIf="clienteForm.get('llamadaSeguimientoFecha')?.hasError('required')">La fecha de llamada de seguimiento es requerida.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="llamadaSeguimientoHora">Hora de Llamada de Seguimiento</label>
+        <input id="llamadaSeguimientoHora" formControlName="llamadaSeguimientoHora" type="time" class="form-control" />
+        <div *ngIf="clienteForm.get('llamadaSeguimientoHora')?.invalid && clienteForm.get('llamadaSeguimientoHora')?.touched" class="error">
+          <small *ngIf="clienteForm.get('llamadaSeguimientoHora')?.hasError('required')">La hora de llamada de seguimiento es requerida.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="observaciones">Observaciones</label>
+        <textarea id="observaciones" formControlName="observaciones" class="form-control" placeholder="Ingrese las observaciones"></textarea>
+        <div *ngIf="clienteForm.get('observaciones')?.invalid && clienteForm.get('observaciones')?.touched" class="error">
+          <small *ngIf="clienteForm.get('observaciones')?.hasError('required')">Las observaciones son requeridas.</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-50 h-50 centered" [disabled]="clienteForm.invalid">Crear Cliente</button>
+  </div>
+</form>
+
+<dtl-modal-empleados
+  *ngIf="isModalOpen"
+  [data]="modalData"
+  (close)="handleModalClose()"
+  (selectedCode)="handleSelectedCode($event)"
+></dtl-modal-empleados>

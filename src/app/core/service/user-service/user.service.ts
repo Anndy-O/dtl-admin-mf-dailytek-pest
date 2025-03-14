@@ -46,6 +46,8 @@ export class UsuarioService {
     return this.http.post<ClienteTemporalResponse>(`${this.baseUrl}/registrar-cliente-temporal`, clienteTemporal, { withCredentials: true });
   }
 
+  obtenerVendedores(): Observable<Empleado[]> {
+    return this.http.get<Empleado[]>(`${this.baseUrl}/listar-vendedores`, { withCredentials: true });
+  }
+
 }
-
-

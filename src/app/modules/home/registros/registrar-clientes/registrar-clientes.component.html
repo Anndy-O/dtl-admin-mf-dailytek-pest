@@ -1,24 +1,26 @@
-<div class="container">
+<div>
+  <div class="reg-clientes">
+    <div class="clientes">
+      <div class="botones-clientes">
+      <button (click)="temp = false">Formulario Clientes</button>
+      <button (click)="temp = true">Formulario Clientes Temporales</button>
+      </div>
 
-  <div class="clientes">
-    <div class="botones-clientes">
-    <button (click)="temp = false">Formulario Clientes</button>
-    <button (click)="temp = true">Formulario Clientes Temporales</button>
+      <div class="formulario-clientes">
+        <dtl-clientes *ngIf="!temp"></dtl-clientes>
+        <dtl-clientes-temporales *ngIf="temp"></dtl-clientes-temporales>
+      </div>
     </div>
 
-    <div class="formulario-clientes">
-      <dtl-clientes *ngIf="!temp"></dtl-clientes>
-      <dtl-clientes-temporales *ngIf="temp"></dtl-clientes-temporales>
+    <div class="tablas-clientes">
+      <div class="cliente-regular">
+        <dtl-tabla-clientes></dtl-tabla-clientes>
+      </div>
+      <div class="cliente-temporal">
+        <dtl-tabla-clientes-temporales></dtl-tabla-clientes-temporales>
+      </div>
     </div>
   </div>
-
-  <div class="tablas-clientes">
-    <div class="cliente-regular">
-      <dtl-tabla-clientes></dtl-tabla-clientes>
-    </div>
-    <div class="cliente-temporal">
-      <dtl-tabla-clientes-temporales></dtl-tabla-clientes-temporales>
-    </div>
-  </div>
-
+  <dtl-footer></dtl-footer>
 </div>
+
